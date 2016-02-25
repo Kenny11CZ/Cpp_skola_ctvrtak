@@ -1,3 +1,5 @@
+#include <main.h>
+
 #include <stdio.h>
 #include <math.h>
 
@@ -58,6 +60,65 @@ void insertionSort(int * array, int size) {
     }
 }
 
+void mergeSort(int * array, int size)
+{
+    mergeSort(array, 0, size-1);
+}
+
+void mergeSort(int * array, int start, int end)
+{
+    int stred;
+    if(start < end)
+    {
+        stred = (start + end) / 2;
+        mergeSort(pole, start, stred);
+        mergeSort(pole, stred+1, end);
+        merge(pole, start, end);
+    }
+
+
+}
+
+void merge(int *array, int start, int end)
+{
+    int stred = (start + end)/2;
+    int start1 = start;
+    int end1 = stred;
+    int start2 = start + stred + 1;
+    int end2 = end;
+    int pomPole[konec - start + 1];
+    for(int i = 0; i < end - start +1; i++)
+    {
+        if(pole[start1] < pole[start2])
+        {
+            pomPole[i] = pole[start1];
+            if(start1 < konec1)
+                start++;
+            else
+            {
+                for(start2; start2 <= konec2; start2++)
+                {
+                    i++;
+                    polePom[i] = pole[start2];
+                }
+            }
+        }
+        else
+        {
+            polePom[i] = pole[start2];
+            if(start2 < konec2)
+                start2++;
+            else
+            {
+                for(start1; start1 <= konec1; start1++)
+                {
+                    i++;
+                    polePom[i] = pole[start1];
+                }
+            }
+        }
+    }
+}
 
 void VypisPole(int pole[], int velikost)
 {
@@ -75,4 +136,6 @@ int main()
     VypisPole(pole, velikost);
     return 0;
 }
+
+
 
